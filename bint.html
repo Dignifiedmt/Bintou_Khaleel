@@ -1,0 +1,2645 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bintou Khaleel | Educator, Health Advocate, Caterer and Builder of Futures</title>
+<meta name="description" content="Fatima Ibrahim, popularly known and addressed as Bintou Khaleel or Aunty Bintou. Health care educator, tutor, caterer, kitchen utensil entrepreneur, social media manager and digital creator building a life of purpose, health, independence and resilience." />
+<meta name="theme-color" content="#0e7c7c" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('bkTheme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+/* ============================================================
+   1. DESIGN TOKENS  (silver and dark cyan)
+   ============================================================ */
+:root{
+  --cyan:#0e7c7c;
+  --cyan-deep:#0a4f52;
+  --cyan-soft:#17a2a2;
+  --silver:#b9c6cc;
+  --silver-bright:#e8eef1;
+
+  --grad:linear-gradient(120deg,#0e7c7c 0%,#9db5bd 100%);
+  --grad-soft:linear-gradient(120deg,rgba(14,124,124,.14),rgba(185,198,204,.20));
+
+  --radius:22px;
+  --radius-sm:14px;
+  --max:1160px;
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+
+html[data-theme="light"]{
+  --bg:#f3f7f8;
+  --bg-alt:#e9f0f2;
+  --surface:#ffffff;
+  --surface-2:#eef4f5;
+  --text:#07222a;
+  --text-soft:#254650;
+  --muted:#5d7880;
+  --line:rgba(7,34,42,.10);
+  --line-strong:rgba(7,34,42,.18);
+  --header-bg:rgba(243,247,248,.85);
+  --shadow:0 18px 44px -24px rgba(4,40,48,.35);
+  --shadow-sm:0 6px 18px -10px rgba(4,40,48,.30);
+  --glow:rgba(14,124,124,.35);
+  --diamond-ring:rgba(14,124,124,.14);
+}
+
+html[data-theme="dark"]{
+  --bg:#05181c;
+  --bg-alt:#082227;
+  --surface:#0b262c;
+  --surface-2:#0f3138;
+  --text:#eaf4f6;
+  --text-soft:#c9dde0;
+  --muted:#8fa9ae;
+  --line:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.20);
+  --header-bg:rgba(5,24,28,.80);
+  --shadow:0 24px 54px -26px rgba(0,0,0,.85);
+  --shadow-sm:0 8px 20px -12px rgba(0,0,0,.85);
+  --glow:rgba(23,162,162,.45);
+  --diamond-ring:rgba(23,162,162,.20);
+}
+
+/* ============================================================
+   2. RESET AND BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  font-family:'Outfit',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:clamp(1rem,.96rem + .18vw,1.06rem);
+  line-height:1.72;
+  color:var(--text);
+  background:var(--bg);
+  overflow-x:hidden;
+  transition:background-color .45s ease,color .45s ease;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(620px 420px at 10% -5%,rgba(14,124,124,.14),transparent 70%),
+    radial-gradient(720px 520px at 95% 5%,rgba(185,198,204,.18),transparent 72%),
+    radial-gradient(820px 620px at 50% 105%,rgba(14,124,124,.10),transparent 72%);
+}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:600;
+  line-height:1.12;
+  letter-spacing:-.02em;
+  margin:0 0 .55em;
+}
+
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit}
+
+:focus-visible{
+  outline:2px solid var(--cyan-soft);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:999;
+  background:var(--surface);color:var(--text);
+  padding:12px 20px;border-radius:0 0 12px 0;font-weight:600;
+}
+.skip-link:focus{left:0}
+
+/* ============================================================
+   3. LOADER
+   ============================================================ */
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  background:var(--bg);
+  transition:opacity .65s ease,visibility .65s ease;
+}
+.loader.is-done{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.loader-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+.loader-mark{
+  width:76px;height:76px;
+  border-radius:22px;
+  display:grid;place-items:center;
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;font-weight:700;
+  letter-spacing:.02em;
+  color:#fff;
+  background:var(--grad);
+  box-shadow:0 22px 44px -18px var(--glow);
+  animation:loaderPulse 1.9s ease-in-out infinite;
+}
+.loader-bar{
+  width:160px;height:4px;
+  border-radius:99px;
+  background:var(--line-strong);
+  overflow:hidden;
+}
+.loader-bar span{
+  display:block;
+  height:100%;width:42%;
+  border-radius:99px;
+  background:var(--grad);
+  animation:loaderSlide 1.25s ease-in-out infinite;
+}
+.loader-text{
+  margin:0;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+@keyframes loaderPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.07)}
+}
+@keyframes loaderSlide{
+  0%{transform:translateX(-110%)}
+  100%{transform:translateX(360%)}
+}
+
+/* ============================================================
+   4. LAYOUT HELPERS
+   ============================================================ */
+.container{
+  width:100%;
+  max-width:var(--max);
+  margin-inline:auto;
+  padding-inline:clamp(18px,4.5vw,34px);
+}
+
+.section{
+  position:relative;
+  padding-block:clamp(58px,8vw,112px);
+}
+.section--alt{background:var(--bg-alt);transition:background-color .45s ease}
+
+.section-head{max-width:660px;margin-bottom:clamp(30px,4.5vw,54px)}
+
+/* ------------------------------------------------------------
+   EYEBROW LABEL — diamond accent instead of a line
+   ------------------------------------------------------------ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:.76rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--cyan);
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:"";
+  width:9px;height:9px;
+  flex:0 0 9px;
+  border-radius:2px;
+  background:var(--grad);
+  transform:rotate(45deg);
+  box-shadow:0 0 0 4px var(--diamond-ring);
+}
+
+.eyebrow--silver{color:var(--silver-bright)}
+.eyebrow--silver::before{
+  background:linear-gradient(120deg,#e8eef1,#b9c6cc);
+  box-shadow:0 0 0 4px rgba(232,238,241,.16);
+}
+
+.eyebrow--light{color:#fff}
+.eyebrow--light::before{
+  background:rgba(255,255,255,.9);
+  box-shadow:0 0 0 4px rgba(255,255,255,.20);
+}
+
+h2{font-size:clamp(1.85rem,1.2rem + 2.6vw,2.85rem)}
+.lead{color:var(--muted);font-size:clamp(1rem,.96rem + .25vw,1.1rem)}
+
+.grid{display:grid;gap:clamp(16px,2.3vw,24px)}
+.grid--cards{grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.grid--small{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+/* ============================================================
+   5. BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:600;font-size:.95rem;
+  text-decoration:none;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background-color .3s,color .3s,border-color .3s;
+  will-change:transform;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(-1px)}
+
+.btn--primary{
+  background:var(--grad);
+  color:#fff;
+  box-shadow:0 16px 34px -16px var(--glow);
+}
+.btn--primary:hover{box-shadow:0 22px 44px -16px var(--glow)}
+
+.btn--ghost{
+  background:transparent;
+  color:var(--text);
+  border-color:var(--line-strong);
+}
+.btn--ghost:hover{
+  border-color:var(--cyan);
+  color:var(--cyan);
+  background:rgba(14,124,124,.07);
+}
+
+.btn--sm{padding:10px 18px;font-size:.86rem}
+
+.btn svg{
+  width:18px;height:18px;
+  stroke:currentColor;fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ============================================================
+   6. HEADER AND NAVIGATION
+   ============================================================ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);
+  -webkit-backdrop-filter:blur(16px) saturate(150%);
+  backdrop-filter:blur(16px) saturate(150%);
+  border-bottom:1px solid var(--line);
+  transition:background-color .45s ease,border-color .45s ease;
+}
+
+.progress-bar{
+  position:absolute;left:0;bottom:-1px;
+  height:2px;width:100%;
+  background:var(--grad);
+  transform:scaleX(0);
+  transform-origin:left center;
+  pointer-events:none;
+}
+
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;
+  min-height:72px;
+}
+
+.brand{
+  display:inline-flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--text);
+  font-weight:600;letter-spacing:-.01em;
+  flex-shrink:0;
+}
+
+.brand-mark{
+  position:relative;
+  width:44px;height:44px;flex:0 0 44px;
+  border-radius:14px;
+  display:grid;place-items:center;
+  overflow:hidden;
+  background:var(--grad);
+  color:#fff;
+  font-family:'Fraunces',serif;
+  font-size:1rem;font-weight:700;letter-spacing:.02em;
+  box-shadow:0 10px 22px -12px var(--glow);
+  border:1px solid rgba(255,255,255,.28);
+}
+.brand-mark img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+}
+
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-text strong{font-size:.98rem;font-weight:600}
+.brand-text em{
+  font-style:normal;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;
+}
+
+.nav{
+  position:absolute;
+  top:100%;left:0;right:0;
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow);
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .42s var(--ease);
+}
+.nav.is-open{max-height:min(72vh,560px);overflow-y:auto}
+
+.nav ul{
+  display:flex;flex-direction:column;gap:2px;
+  padding:10px clamp(18px,4.5vw,34px) 20px;
+}
+.nav a{
+  display:block;
+  padding:12px 12px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:500;font-size:.97rem;
+  color:var(--text-soft);
+  transition:background-color .25s,color .25s;
+}
+.nav a:hover,.nav a:focus-visible{background:rgba(14,124,124,.10);color:var(--cyan)}
+.nav a.active{color:var(--cyan);font-weight:600}
+
+.header-actions{display:flex;align-items:center;gap:10px}
+
+.icon-btn{
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text-soft);
+  cursor:pointer;
+  transition:color .25s,border-color .25s,transform .25s,background-color .25s;
+}
+.icon-btn:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-2px)}
+.icon-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+html[data-theme="light"] .icon-sun{display:none}
+html[data-theme="dark"] .icon-moon{display:none}
+
+.header-cv,.header-cta{display:none}
+
+.hamburger{
+  position:relative;
+  width:44px;height:44px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  border-radius:14px;
+  border:1px solid var(--line-strong);
+  background:linear-gradient(160deg,var(--surface) 0%,var(--surface-2) 100%);
+  cursor:pointer;
+  padding:0;
+  overflow:hidden;
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease),
+             background .3s var(--ease),transform .25s var(--ease);
+}
+.hamburger::before{
+  content:"";
+  position:absolute;inset:0;
+  background:var(--grad);
+  opacity:0;
+  transition:opacity .3s var(--ease);
+  pointer-events:none;
+}
+.hamburger span{
+  position:relative;
+  display:block;
+  width:20px;height:2px;
+  border-radius:2px;
+  background:var(--grad);
+  transition:transform .34s var(--ease),opacity .22s ease,width .34s var(--ease),background-color .25s;
+}
+.hamburger span:nth-child(2){width:14px;margin-left:-6px}
+
+.hamburger:hover{
+  border-color:var(--cyan);
+  box-shadow:0 10px 24px -14px var(--glow);
+  transform:translateY(-1px);
+}
+.hamburger:hover span{width:20px;margin-left:0}
+.hamburger:active{transform:translateY(0) scale(.97)}
+
+.hamburger[aria-expanded="true"]{
+  border-color:transparent;
+  box-shadow:0 12px 28px -14px var(--glow);
+}
+.hamburger[aria-expanded="true"]::before{opacity:1}
+.hamburger[aria-expanded="true"] span{background:#fff;width:20px;margin-left:0}
+.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.4)}
+.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============================================================
+   7. HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding-block:clamp(40px,6vw,86px) clamp(52px,7vw,104px);
+  overflow:hidden;
+}
+
+.hero-grid{
+  display:grid;
+  gap:clamp(38px,6vw,64px);
+  align-items:center;
+}
+
+.hero-title{
+  font-size:clamp(2rem,1.2rem + 4vw,3.6rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  margin-bottom:.4em;
+}
+.hero-title .grad{
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-roles{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin:0 0 26px;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:.8rem;font-weight:500;
+  color:var(--text-soft);
+  background:var(--surface);
+  border:1px solid var(--line);
+  transition:border-color .25s,color .25s,transform .25s;
+}
+.chip:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.chip-icon{
+  display:inline-grid;place-items:center;
+  width:18px;height:18px;
+  color:var(--cyan);
+  flex:0 0 18px;
+}
+.chip-icon svg{
+  width:14px;height:14px;
+  fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+.hero-visual{
+  position:relative;
+  width:min(100%,400px);
+  aspect-ratio:1/1;
+  margin-inline:auto;
+}
+
+.avatar-ring{
+  position:absolute;
+  inset:9%;
+  border-radius:50%;
+  padding:11px;
+  background:conic-gradient(from 150deg,#0e7c7c,#b9c6cc,#0e7c7c);
+  box-shadow:0 34px 70px -32px var(--glow);
+}
+
+.avatar{
+  position:relative;
+  width:100%;height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 32% 26%,#0d3b42,#04181c 72%);
+}
+.avatar-fallback{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem,11vw,4.6rem);
+  font-weight:700;
+  letter-spacing:.02em;
+  background:var(--grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.avatar-img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 22%;
+  border-radius:50%;
+  transition:transform .8s var(--ease);
+}
+.hero-visual:hover .avatar-img{transform:scale(1.045)}
+
+.orbit{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px dashed var(--line-strong);
+  animation:spin 40s linear infinite;
+}
+.orbit::after{
+  content:"";
+  position:absolute;top:-6px;left:50%;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--silver);
+  transform:translateX(-50%);
+  box-shadow:0 0 0 5px rgba(185,198,204,.22);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.float-chip{
+  position:absolute;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;
+  border-radius:999px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  font-size:.8rem;font-weight:600;
+  white-space:nowrap;
+  animation:float 6.5s ease-in-out infinite;
+}
+.float-chip .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--grad);
+  flex:0 0 8px;
+}
+.chip-1{top:1%;left:-3%}
+.chip-2{top:24%;right:-6%;animation-delay:-1.6s}
+.chip-3{bottom:20%;left:-7%;animation-delay:-3.2s}
+.chip-4{bottom:1%;right:-2%;animation-delay:-4.8s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+/* ============================================================
+   8. ABOUT
+   ============================================================ */
+.about-grid{
+  display:grid;
+  gap:clamp(28px,4vw,52px);
+  align-items:start;
+}
+
+.about-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.4vw,34px);
+  box-shadow:var(--shadow);
+}
+.about-card h3{
+  font-size:1.15rem;
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:20px;
+}
+.about-card h3::before{
+  content:"";
+  width:9px;height:9px;
+  flex:0 0 9px;
+  border-radius:2px;
+  background:var(--grad);
+  transform:rotate(45deg);
+  box-shadow:0 0 0 4px var(--diamond-ring);
+}
+
+.fact-list{display:grid;gap:16px}
+.fact{
+  display:flex;gap:14px;
+  padding-bottom:16px;
+  border-bottom:1px dashed var(--line);
+}
+.fact:last-child{border-bottom:0;padding-bottom:0}
+.fact-icon{
+  flex:0 0 38px;width:38px;height:38px;
+  border-radius:11px;
+  display:grid;place-items:center;
+  background:var(--grad-soft);
+  border:1px solid rgba(14,124,124,.22);
+  color:var(--cyan);
+}
+.fact-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fact strong{display:block;font-size:.95rem;font-weight:600;line-height:1.35}
+.fact span{font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* ============================================================
+   9. CARDS
+   ============================================================ */
+.card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.2vw,32px);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;
+}
+.card::after{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:inherit;
+  background:var(--grad);
+  opacity:0;
+  transition:opacity .4s;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  padding:1px;
+  pointer-events:none;
+}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
+.card:hover::after{opacity:.75}
+
+.card h3{font-size:1.16rem;margin-bottom:.6em}
+.card p{font-size:.94rem;color:var(--muted);line-height:1.7}
+
+.icon-box{
+  width:54px;height:54px;
+  border-radius:16px;
+  display:grid;place-items:center;
+  background:var(--grad-soft);
+  border:1px solid rgba(14,124,124,.22);
+  color:var(--cyan);
+  margin-bottom:20px;
+  transition:transform .4s var(--ease);
+}
+.card:hover .icon-box{transform:scale(1.06) rotate(-4deg)}
+.icon-box svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   10. SKILLS
+   ============================================================ */
+.skills-group{margin-bottom:clamp(32px,5vw,52px)}
+.skills-group:last-of-type{margin-bottom:clamp(32px,5vw,52px)}
+
+.skills-group-head{
+  margin-bottom:clamp(16px,2.5vw,24px);
+  max-width:640px;
+}
+.skills-group-head h3{
+  font-size:clamp(1.1rem,1rem + .5vw,1.32rem);
+  margin:0 0 .3em;
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+.skills-group-head h3::before{
+  content:"";
+  width:9px;height:9px;
+  flex:0 0 9px;
+  border-radius:2px;
+  background:var(--grad);
+  transform:rotate(45deg);
+  box-shadow:0 0 0 4px var(--diamond-ring);
+}
+.skills-group-head p{
+  font-size:.92rem;
+  color:var(--muted);
+  margin:0;
+}
+
+.skills-grid{
+  display:grid;
+  gap:clamp(14px,2vw,20px);
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+
+.skill-card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:clamp(20px,2.6vw,26px);
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease),border-color .35s,box-shadow .35s;
+}
+.skill-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(14,124,124,.5);
+  box-shadow:var(--shadow);
+}
+.skill-card .icon-box{
+  width:46px;height:46px;
+  margin-bottom:16px;
+  border-radius:13px;
+}
+.skill-card .icon-box svg{width:22px;height:22px}
+.skill-card:hover .icon-box{transform:scale(1.06) rotate(-4deg)}
+.skill-card h4{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:1.02rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+  line-height:1.3;
+  margin:0 0 .4em;
+}
+.skill-card p{
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0;
+}
+
+.skills-bars{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(24px,3.8vw,40px);
+  box-shadow:var(--shadow);
+  margin-bottom:clamp(26px,4vw,38px);
+}
+.skills-bars-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:14px;
+  margin-bottom:clamp(18px,3vw,26px);
+}
+.skills-bars-head h3{
+  font-size:clamp(1.15rem,1rem + .6vw,1.5rem);
+  margin:0;
+}
+.skills-bars-head span{
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.skill-bar + .skill-bar{margin-top:18px}
+.skill-bar-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  margin-bottom:8px;
+  font-size:.92rem;
+  font-weight:500;
+}
+.skill-bar-head span:last-child{
+  color:var(--muted);
+  font-size:.82rem;
+  font-variant-numeric:tabular-nums;
+}
+.skill-bar-track{
+  height:8px;
+  border-radius:999px;
+  background:var(--line);
+  overflow:hidden;
+}
+.skill-bar-fill{
+  height:100%;
+  width:0;
+  border-radius:999px;
+  background:var(--grad);
+  transition:width 1.5s var(--ease);
+}
+.skill-bar.is-active .skill-bar-fill{width:var(--value,0%)}
+
+.skill-tags{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.2vw,32px);
+  box-shadow:var(--shadow-sm);
+}
+.skill-tags h3{
+  font-size:1.06rem;
+  margin-bottom:16px;
+}
+.skill-tags ul{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.skill-tags li{
+  font-size:.8rem;
+  font-weight:500;
+  padding:7px 14px;
+  border-radius:999px;
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  color:var(--text-soft);
+  transition:border-color .25s,color .25s,background-color .25s,transform .25s;
+}
+.skill-tags li:hover{
+  border-color:var(--cyan);
+  color:var(--cyan);
+  background:rgba(14,124,124,.06);
+  transform:translateY(-2px);
+}
+
+/* ============================================================
+   11. PROJECTS
+   ============================================================ */
+.projects-panel{
+  position:relative;
+  overflow:hidden;
+  border-radius:clamp(22px,3vw,34px);
+  padding:clamp(28px,5vw,62px);
+  background:linear-gradient(140deg,#07363b 0%,#0a4f52 45%,#0e7c7c 100%);
+  border:1px solid rgba(185,198,204,.28);
+  box-shadow:0 44px 96px -52px rgba(10,79,82,.95);
+  color:#eef4f6;
+}
+.projects-panel::before{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(620px 320px at 88% -5%,rgba(232,238,241,.20),transparent 70%),
+    radial-gradient(520px 300px at 0% 100%,rgba(23,162,162,.28),transparent 72%);
+}
+.projects-panel > *{position:relative}
+.projects-panel h2{color:#f4f9fa}
+.projects-panel .lead{color:rgba(232,238,241,.78)}
+
+.project-grid{
+  margin-top:clamp(24px,4vw,38px);
+  display:grid;
+  gap:clamp(16px,2.4vw,24px);
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+
+.project-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:linear-gradient(150deg,rgba(232,238,241,.14),rgba(232,238,241,.04));
+  border:1px solid rgba(232,238,241,.28);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+  display:flex;
+  flex-direction:column;
+}
+.project-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(232,238,241,.58);
+  box-shadow:0 24px 46px -28px rgba(0,0,0,.8);
+}
+
+.project-image{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:linear-gradient(140deg,#0e7c7c 0%,#9db5bd 100%);
+  border-bottom:1px solid rgba(232,238,241,.20);
+}
+.project-image img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .55s var(--ease);
+}
+.project-card:hover .project-image img{transform:scale(1.06)}
+
+.project-body{
+  padding:clamp(18px,2.6vw,24px);
+}
+.project-body h3{
+  color:#f4f9fa;
+  font-size:1.06rem;
+  margin:0 0 .4em;
+}
+.project-body p{
+  color:rgba(232,238,241,.74);
+  font-size:.9rem;
+  margin:0;
+  line-height:1.6;
+}
+
+/* ============================================================
+   12. PASSIONS
+   ============================================================ */
+.tile{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 20px;
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),border-color .35s,color .35s;
+}
+.tile:hover{transform:translateY(-4px);border-color:rgba(14,124,124,.5)}
+.tile-icon{
+  flex:0 0 40px;width:40px;height:40px;
+  border-radius:12px;
+  display:grid;place-items:center;
+  background:var(--grad-soft);
+  border:1px solid rgba(14,124,124,.16);
+  color:var(--cyan);
+}
+.tile-icon svg{
+  width:19px;height:19px;
+  fill:none;stroke:currentColor;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+.tile span{font-size:.93rem;font-weight:500;line-height:1.4}
+
+/* ============================================================
+   13. QUOTE
+   ============================================================ */
+.quote-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:clamp(22px,3vw,32px);
+  background:var(--grad);
+  color:#fff;
+  padding:clamp(28px,5vw,60px);
+  box-shadow:0 34px 80px -40px var(--glow);
+}
+.quote-card::before{
+  content:"\201C";
+  position:absolute;top:-58px;right:14px;
+  font-family:'Fraunces',serif;
+  font-size:clamp(11rem,20vw,17rem);
+  line-height:1;
+  color:rgba(255,255,255,.16);
+  pointer-events:none;
+}
+.quote-card p{
+  position:relative;
+  color:rgba(255,255,255,.96);
+  font-size:clamp(1rem,.95rem + .35vw,1.18rem);
+  line-height:1.75;
+  max-width:62ch;
+}
+.quote-card .signature{
+  margin-top:26px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.2rem,1rem + .8vw,1.6rem);
+  font-weight:600;
+  letter-spacing:.01em;
+}
+.quote-card .signature svg{
+  width:22px;height:22px;
+  flex:0 0 22px;
+  fill:none;
+  stroke:rgba(255,255,255,.85);
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.quote-card .role{
+  display:block;
+  margin-top:6px;
+  font-family:'Outfit',sans-serif;
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.84);
+}
+
+/* ============================================================
+   14. GOALS
+   ============================================================ */
+.goals{display:grid;gap:0}
+.goal{
+  display:flex;gap:clamp(16px,3vw,26px);
+  padding:clamp(20px,3vw,28px) 0;
+  border-bottom:1px dashed var(--line);
+}
+.goal:last-child{border-bottom:0}
+.goal-num{
+  flex:0 0 auto;
+  width:48px;height:48px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;font-weight:600;
+  color:var(--cyan);
+  background:var(--grad-soft);
+  border:1px solid rgba(14,124,124,.25);
+}
+.goal h3{font-size:1.1rem;margin-bottom:.35em}
+.goal p{font-size:.94rem;color:var(--muted);margin:0}
+
+/* ============================================================
+   15. CONTACT AND FORM
+   ============================================================ */
+.contact-form{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(22px,3.4vw,38px);
+  box-shadow:var(--shadow);
+  display:grid;
+  gap:16px;
+  margin-bottom:clamp(24px,4vw,40px);
+}
+.contact-form h3{
+  font-size:clamp(1.15rem,1rem + .6vw,1.45rem);
+  margin-bottom:.2em;
+}
+.contact-form .form-intro{
+  font-size:.92rem;
+  color:var(--muted);
+  margin:0 0 4px;
+}
+.form-row{
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+}
+.field{display:grid;gap:7px}
+.field label{
+  font-size:.74rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.field input,
+.field textarea{
+  width:100%;
+  font:inherit;
+  font-size:.95rem;
+  color:var(--text);
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+  transition:border-color .25s,box-shadow .25s,background-color .25s;
+}
+.field input::placeholder,
+.field textarea::placeholder{color:var(--muted);opacity:.75}
+.field textarea{min-height:142px;resize:vertical}
+.field input:focus,
+.field textarea:focus{
+  outline:none;
+  border-color:var(--cyan-soft);
+  box-shadow:0 0 0 4px rgba(14,124,124,.16);
+}
+.form-actions{
+  display:flex;flex-wrap:wrap;
+  align-items:center;gap:14px;
+  margin-top:4px;
+}
+.form-note{
+  font-size:.8rem;
+  color:var(--muted);
+  margin:0;
+}
+
+.contact-grid{
+  display:grid;
+  gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+
+.contact-card{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;
+  border-radius:var(--radius-sm);
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  text-decoration:none;
+  color:var(--text);
+  transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+}
+.contact-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(14,124,124,.55);
+  box-shadow:var(--shadow);
+}
+.contact-card .icon-box{
+  width:46px;height:46px;flex:0 0 46px;
+  margin:0;border-radius:13px;
+}
+.contact-card .icon-box svg{width:22px;height:22px}
+.contact-card .meta{min-width:0}
+.contact-card .meta strong{
+  display:block;
+  font-size:.93rem;font-weight:600;line-height:1.3;
+}
+.contact-card .meta span{
+  display:block;
+  font-size:.82rem;color:var(--muted);
+  line-height:1.4;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+.contact-note{
+  margin-top:clamp(28px,4vw,44px);
+  padding:clamp(24px,4vw,40px);
+  border-radius:var(--radius);
+  background:var(--surface-2);
+  border:1px dashed var(--line-strong);
+  text-align:center;
+}
+.contact-note h3{font-size:clamp(1.2rem,1rem + 1vw,1.6rem)}
+.contact-note p{color:var(--muted);max-width:52ch;margin-inline:auto}
+
+/* ============================================================
+   16. BACK TO TOP
+   ============================================================ */
+.to-top{
+  position:fixed;
+  right:clamp(14px,3vw,24px);
+  bottom:clamp(14px,3vw,24px);
+  z-index:90;
+  width:50px;height:50px;
+  display:grid;place-items:center;
+  border:0;
+  border-radius:16px;
+  background:var(--grad);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 18px 36px -18px var(--glow);
+  opacity:0;
+  transform:translateY(16px) scale(.9);
+  pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease),box-shadow .3s;
+}
+.to-top.is-visible{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+.to-top:hover{
+  transform:translateY(-3px);
+  box-shadow:0 24px 46px -18px var(--glow);
+}
+.to-top svg{
+  width:22px;height:22px;
+  fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ============================================================
+   17. FOOTER
+   ============================================================ */
+.site-footer{
+  border-top:1px solid var(--line);
+  background:var(--bg-alt);
+  padding-block:clamp(36px,5vw,54px);
+  transition:background-color .45s ease;
+}
+.footer-grid{
+  display:grid;
+  gap:clamp(26px,4vw,44px);
+}
+.footer-brand p{
+  font-size:.9rem;color:var(--muted);max-width:38ch;
+  margin-top:14px;
+}
+.footer-title{
+  font-family:'Outfit',sans-serif;
+  font-size:.76rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.footer-links{display:grid;gap:10px}
+.footer-links a{
+  text-decoration:none;font-size:.92rem;color:var(--text-soft);
+  transition:color .25s,padding-left .25s;
+  width:fit-content;
+}
+.footer-links a:hover{color:var(--cyan);padding-left:5px}
+
+.social-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.social-row a{
+  width:42px;height:42px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text-soft);
+  transition:transform .3s var(--ease),color .3s,border-color .3s;
+}
+.social-row a:hover{transform:translateY(-3px);color:var(--cyan);border-color:var(--cyan)}
+.social-row svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.footer-bottom{
+  margin-top:clamp(28px,4vw,42px);
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:12px;
+  align-items:center;justify-content:space-between;
+  font-size:.84rem;color:var(--muted);
+}
+
+/* ============================================================
+   18. SCROLL REVEAL
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .75s var(--ease),transform .75s var(--ease);
+  will-change:opacity,transform;
+}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+
+/* ============================================================
+   19. RESPONSIVE
+   ============================================================ */
+@media (max-width:520px){
+  .float-chip{font-size:.72rem;padding:7px 11px}
+  .chip-1{left:0}
+  .chip-2{right:0}
+  .chip-3{left:0}
+  .chip-4{right:0}
+  .to-top{width:46px;height:46px;border-radius:14px}
+}
+
+@media (min-width:620px){
+  .form-row{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1.5fr 1fr}
+}
+
+@media (min-width:900px){
+  html{scroll-padding-top:104px}
+
+  .header-cv,.header-cta{display:inline-flex}
+  .hamburger{display:none}
+
+  .nav{
+    position:static;
+    max-height:none;
+    overflow:visible;
+    background:none;
+    border:0;
+    box-shadow:none;
+    flex:1;
+    display:flex;
+    justify-content:center;
+  }
+  .nav ul{
+    flex-direction:row;
+    align-items:center;
+    gap:clamp(4px,1.6vw,22px);
+    padding:0;
+  }
+  .nav a{
+    position:relative;
+    padding:10px 2px;
+    font-size:.9rem;
+    background:none;
+    border-radius:0;
+  }
+  .nav a:hover{background:none;color:var(--text)}
+  .nav a::after{
+    content:"";
+    position:absolute;left:0;right:0;bottom:2px;
+    height:2px;border-radius:2px;
+    background:var(--grad);
+    transform:scaleX(0);
+    transform-origin:left center;
+    transition:transform .32s var(--ease);
+  }
+  .nav a:hover::after,
+  .nav a.active::after{transform:scaleX(1)}
+  .nav a.active{color:var(--text)}
+
+  .hero-grid{grid-template-columns:1.12fr .88fr}
+  .about-grid{grid-template-columns:1.15fr .85fr}
+  .footer-grid{grid-template-columns:1.6fr 1fr}
+
+  .chip-1{left:-5%}
+  .chip-2{right:-8%}
+  .chip-3{left:-10%}
+  .chip-4{right:-4%}
+}
+
+@media (min-width:1080px){
+  .hero-visual{width:min(100%,420px)}
+}
+
+/* ============================================================
+   20. MOTION AND PRINT
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .reveal{opacity:1;transform:none}
+  .skill-bar-fill{transition:none}
+}
+
+@media print{
+  .site-header,.hero-visual,.social-row,.btn,.to-top,.loader,.contact-form{display:none !important}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ==========================================================
+     LOADER
+     ========================================================== -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <div class="loader-mark" aria-hidden="true">BK</div>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+    <p class="loader-text">Loading</p>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ==========================================================
+     HEADER
+     ========================================================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#home" aria-label="Bintou Khaleel home">
+      <span class="brand-mark">
+        <span aria-hidden="true">BK</span>
+        <img src="profile.png" alt="" aria-hidden="true" onerror="this.remove()" />
+      </span>
+      <span class="brand-text">
+        <strong>Bintou Khaleel</strong>
+        <em>Aunty Bintou</em>
+      </span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">What I Do</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button"
+              aria-label="Switch to dark theme" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--ghost btn--sm header-cv" href="bintou.pdf" target="_blank" rel="noopener">
+        View CV
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/>
+          <path d="M14 3v5h5M9 13h6M9 17h4"/>
+        </svg>
+      </a>
+
+      <a class="btn btn--primary btn--sm header-cta" href="#contact">
+        Let's Talk
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <button class="hamburger" id="hamburger" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================
+       HERO
+       ======================================================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">The Heart Behind the Hustle</span>
+
+          <h1 class="hero-title">
+            Hello, I am Fatima Ibrahim, popularly known and addressed as
+            <span class="grad">Bintou Khaleel</span>.
+          </h1>
+
+          <p class="lead">
+            Many people simply call me Aunty Bintou. I am a health care educator, tutor, social
+            media manager, digital creator, caterer and kitchen utensil entrepreneur, living at the
+            beautiful intersection of health, innovation, business and community empowerment.
+          </p>
+
+          <ul class="hero-roles" aria-label="Areas of expertise">
+            <li class="chip">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+              </span>
+              Educator and Tutor
+            </li>
+            <li class="chip">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 3v6a4 4 0 0 0 8 0V3"/><path d="M8 13v3a5 5 0 0 0 10 0v-2"/><circle cx="18" cy="11" r="3"/></svg>
+              </span>
+              Health Advocate
+            </li>
+            <li class="chip">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 13.5A4.5 4.5 0 0 1 7 4.6a4.5 4.5 0 0 1 10 .5 4.5 4.5 0 0 1 1 8.4V19H6v-5.5Z"/><path d="M6 19h12"/></svg>
+              </span>
+              Caterer
+            </li>
+            <li class="chip">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              </span>
+              Digital Creator
+            </li>
+            <li class="chip">
+              <span class="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M3 12h3M18 12h3M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              Skills Builder
+            </li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#contact">
+              Work With Me
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="bintou.pdf" target="_blank" rel="noopener">
+              View CV
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/>
+                <path d="M14 3v5h5M9 13h6M9 17h4"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="avatar-ring">
+            <div class="avatar">
+              <span class="avatar-fallback" aria-hidden="true">BK</span>
+              <img class="avatar-img"
+                   src="profile.jpg"
+                   alt="Portrait of Fatima Ibrahim, known as Bintou Khaleel"
+                   width="600" height="600"
+                   loading="eager" decoding="async"
+                   onerror="this.remove()" />
+            </div>
+          </div>
+          <div class="float-chip chip-1" aria-hidden="true"><span class="dot"></span> Health Education</div>
+          <div class="float-chip chip-2" aria-hidden="true"><span class="dot"></span> Culinary Arts</div>
+          <div class="float-chip chip-3" aria-hidden="true"><span class="dot"></span> Digital Strategy</div>
+          <div class="float-chip chip-4" aria-hidden="true"><span class="dot"></span> Vocational Hub</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       ABOUT
+       ======================================================== -->
+  <section class="section section--alt" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow">About Me</span>
+          <h2>The Heart Behind the Hustle</h2>
+          <p>
+            If you want to know who I am at my core, look at the beautiful intersection of health
+            education, digital innovation, business and community empowerment.
+          </p>
+          <p>
+            I am Fatima Ibrahim, popularly known and addressed as Bintou Khaleel, an educator,
+            health care educator, social media manager, digital creator, caterer and kitchen utensil
+            entrepreneur who believes that true fulfilment comes from building a life of purpose,
+            health, independence and resilience.
+          </p>
+          <p>
+            Many people simply call me Aunty Bintou. I love running home lessons for kids, especially
+            during the holidays, keeping young minds sharp, creative and engaged with fun and
+            productive learning. Beyond the titles, I am passionate about lifelong learning,
+            mentoring children, promoting health awareness, leveraging technology and creating
+            supportive spaces where people can discover their true potential.
+          </p>
+          <p>
+            I cherish my family, value strong roots, and believe deeply in the power of women
+            supporting women.
+          </p>
+        </div>
+
+        <aside class="about-card reveal" data-delay="1">
+          <h3>At a Glance</h3>
+          <ul class="fact-list">
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+              </span>
+              <span>
+                <strong>Health and Academic Educator</strong>
+                <span>Classroom and online tutoring for young learners</span>
+              </span>
+            </li>
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 13.5A4.5 4.5 0 0 1 7 4.6a4.5 4.5 0 0 1 10 .5 4.5 4.5 0 0 1 1 8.4V19H6v-5.5Z"/><path d="M6 19h12"/></svg>
+              </span>
+              <span>
+                <strong>Caterer and Kitchen Utensil Supplier</strong>
+                <span>Food, community and the tools that bring people together</span>
+              </span>
+            </li>
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              </span>
+              <span>
+                <strong>Social Media and Digital Creator</strong>
+                <span>Content, technical presentations and brand storytelling</span>
+              </span>
+            </li>
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg>
+              </span>
+              <span>
+                <strong>Founder, Vocational and Business Hub</strong>
+                <span>Teaching practical skills that build income and independence</span>
+              </span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       WHAT I DO
+       ======================================================== -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">What I Do and What I Know</span>
+        <h2>Four worlds, one purpose</h2>
+        <p class="lead">
+          My journey is built on a diverse foundation of knowledge and practical experience, where
+          every role feeds the next.
+        </p>
+      </div>
+
+      <div class="grid grid--cards">
+        <article class="card reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1Z"/></svg>
+          </div>
+          <h3>Health and Academic Education</h3>
+          <p>
+            As a health care educator and classroom or online tutor, I am deeply passionate about
+            public health, environmental wellness, and sharing vital knowledge that keeps
+            communities informed, healthy and thriving. I also run holiday home lessons that keep
+            young minds sharp, creative and engaged.
+          </p>
+        </article>
+
+        <article class="card reveal" data-delay="1">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 13.5A4.5 4.5 0 0 1 7 4.6a4.5 4.5 0 0 1 10 .5 4.5 4.5 0 0 1 1 8.4V19H6v-5.5Z"/><path d="M6 19h12"/></svg>
+          </div>
+          <h3>The Culinary and Kitchen World</h3>
+          <p>
+            Food is care and community, which is why I love my work as a caterer. Alongside that, I
+            run a business supplying quality kitchen utensils, equipping homes with the essential
+            tools they need to bring people together around a table.
+          </p>
+        </article>
+
+        <article class="card reveal" data-delay="2">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          </div>
+          <h3>The Digital Space and Tech</h3>
+          <p>
+            As a creator and social media manager, I craft digital content and technical
+            presentations. I also actively study artificial intelligence, online safety and the
+            future of work to stay ahead in a rapidly changing world.
+          </p>
+        </article>
+
+        <article class="card reveal" data-delay="3">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg>
+          </div>
+          <h3>Vocational and Business Hub</h3>
+          <p>
+            I founded and manage an initiative where we teach practical vocational and business
+            skills, turning everyday knowledge into sustainable income and opening doors to self
+            reliance.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SKILLS
+       ======================================================== -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Skills and Strengths</span>
+        <h2>The skills behind the work</h2>
+        <p class="lead">
+          A balanced mix of professional expertise and human skills, built through hands on work,
+          careful study and constant learning across every role I carry.
+        </p>
+      </div>
+
+      <!-- Professional and Technical Skills -->
+      <div class="skills-group reveal">
+        <div class="skills-group-head">
+          <h3>Professional and Technical Skills</h3>
+          <p>Hands on capabilities drawn from teaching, health, catering, retail and digital work.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+            </div>
+            <h4>Teaching and Tutoring</h4>
+            <p>Holiday lessons, exam preparation and classroom or online tutoring for young learners.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 3v6a4 4 0 0 0 8 0V3"/><path d="M8 13v3a5 5 0 0 0 10 0v-2"/><circle cx="18" cy="11" r="3"/></svg>
+            </div>
+            <h4>Health Education</h4>
+            <p>Public health talks, environmental wellness and community health awareness for families.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 13.5A4.5 4.5 0 0 1 7 4.6a4.5 4.5 0 0 1 10 .5 4.5 4.5 0 0 1 1 8.4V19H6v-5.5Z"/><path d="M6 19h12"/></svg>
+            </div>
+            <h4>Catering and Hospitality</h4>
+            <p>Menu planning, event catering, food presentation and warm hospitality for every gathering.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            </div>
+            <h4>Kitchen Utensil Retail</h4>
+            <p>Product sourcing, customer care, order fulfilment and home essentials for every kitchen.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l7 4V6l-7 4H4a1 1 0 0 0-1 1Z"/><path d="M18 9a4 4 0 0 1 0 6"/></svg>
+            </div>
+            <h4>Social Media and Content</h4>
+            <p>Content planning, brand storytelling, community engagement and steady page growth.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </div>
+            <h4>Digital Presentations and Tools</h4>
+            <p>Clean slide decks, technical presentations, visual storytelling and remote presenting.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h4>Online Safety Awareness</h4>
+            <p>Digital literacy, safe internet habits and helping young learners stay protected online.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg>
+            </div>
+            <h4>Business and Vocational Training</h4>
+            <p>Practical skills workshops, small business basics and self reliance coaching for women.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Soft Skills and Personal Strengths -->
+      <div class="skills-group reveal">
+        <div class="skills-group-head">
+          <h3>Soft Skills and Personal Strengths</h3>
+          <p>The human qualities that hold every role together and make the work feel warm.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 11a8 8 0 1 0-3.2 6.4L21 19l-1-3.4A8 8 0 0 0 21 11Z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg>
+            </div>
+            <h4>Good Communication</h4>
+            <p>Clear speaking, careful listening and warm writing that keeps every conversation on track.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M15 20a4 4 0 0 1 6 0"/></svg>
+            </div>
+            <h4>Team Collaboration</h4>
+            <p>Working well across teams, sharing ideas openly and supporting shared goals to the end.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <h4>Time Management</h4>
+            <p>Planning, prioritising and keeping several roles moving smoothly without dropping the ball.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2.5 6-4 8h-6c-1.5-2-4-4.5-4-8a7 7 0 0 1 7-7Z"/><path d="M9 21h6"/><path d="M10 17h4"/></svg>
+            </div>
+            <h4>Problem Solving</h4>
+            <p>Practical thinking, quick adjustments and calm resolution when plans or people change.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 14l9 5 9-5"/><path d="M3 10l9 5 9-5"/></svg>
+            </div>
+            <h4>Leadership and Mentoring</h4>
+            <p>Guiding young learners and women, coaching patiently and building quiet confidence.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/><path d="M12 8.5v5"/></svg>
+            </div>
+            <h4>Customer Relations</h4>
+            <p>Friendly service, attentive follow up and long term trust with every client and family.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 1 9-9"/><path d="M21 12v3a3 3 0 0 1-3 3h-1"/><circle cx="9" cy="10" r="1.4"/><circle cx="15" cy="10" r="1.4"/><path d="M9 14.5c1.2 1 4.8 1 6 0"/></svg>
+            </div>
+            <h4>Emotional Intelligence</h4>
+            <p>Empathy, patience and the ability to read a room and respond with care and respect.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m3 17 5-5 4 4 8-8"/><path d="M16 8h4v4"/><path d="M3 21h18"/></svg>
+            </div>
+            <h4>Adaptability and Resilience</h4>
+            <p>Staying steady through change, learning quickly and turning setbacks into next steps.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="skills-bars reveal">
+        <div class="skills-bars-head">
+          <h3>Areas of focus</h3>
+          <span>Proficiency</span>
+        </div>
+
+        <div class="skill-bar" data-value="94">
+          <div class="skill-bar-head">
+            <span>Health Education</span>
+            <span>94%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="93">
+          <div class="skill-bar-head">
+            <span>Teaching and Tutoring</span>
+            <span>93%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="92">
+          <div class="skill-bar-head">
+            <span>Good Communication</span>
+            <span>92%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="90">
+          <div class="skill-bar-head">
+            <span>Catering and Event Service</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="89">
+          <div class="skill-bar-head">
+            <span>Team Collaboration</span>
+            <span>89%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="88">
+          <div class="skill-bar-head">
+            <span>Social Media and Content</span>
+            <span>88%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="87">
+          <div class="skill-bar-head">
+            <span>Time Management and Organization</span>
+            <span>87%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="86">
+          <div class="skill-bar-head">
+            <span>Kitchen Utensil Retail</span>
+            <span>86%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+
+        <div class="skill-bar" data-value="84">
+          <div class="skill-bar-head">
+            <span>Digital Tools and Online Safety</span>
+            <span>84%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-tags reveal">
+        <h3>Tools and topics I work with</h3>
+        <ul>
+          <li>Lesson planning</li>
+          <li>Holiday tutoring</li>
+          <li>Public health talks</li>
+          <li>Environmental wellness</li>
+          <li>Menu planning</li>
+          <li>Event catering</li>
+          <li>Product sourcing</li>
+          <li>Customer care</li>
+          <li>Content planning</li>
+          <li>Brand storytelling</li>
+          <li>Community engagement</li>
+          <li>Digital literacy</li>
+          <li>Safe internet habits</li>
+          <li>Small business basics</li>
+          <li>Vocational training</li>
+          <li>AI tools for work</li>
+          <li>Remote presenting</li>
+          <li>Women empowerment</li>
+          <li>Youth mentoring</li>
+          <li>Team coordination</li>
+          <li>Good communication</li>
+          <li>Active listening</li>
+          <li>Team collaboration</li>
+          <li>Time management</li>
+          <li>Problem solving</li>
+          <li>Leadership</li>
+          <li>Customer relations</li>
+          <li>Emotional intelligence</li>
+          <li>Adaptability</li>
+          <li>Critical thinking</li>
+          <li>Conflict resolution</li>
+          <li>Public speaking</li>
+          <li>Record keeping</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PROJECTS
+       ======================================================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="projects-panel reveal">
+        <span class="eyebrow eyebrow--silver">Projects</span>
+        <h2>Work in the making</h2>
+        <p class="lead">
+          A growing collection of programs, products and community builds, each shaped with the same
+          care I put into every classroom, kitchen and campaign.
+        </p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-image">
+              <img src="pro1.png" alt="Health Education Series" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+            </div>
+            <div class="project-body">
+              <h3>Health Education Series</h3>
+              <p>Practical public health and environmental wellness sessions for families and community groups.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="pro2.png" alt="Holiday Learning Club" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+            </div>
+            <div class="project-body">
+              <h3>Holiday Learning Club</h3>
+              <p>Fun, structured holiday lessons that keep young minds sharp, curious and creative.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="pro3.png" alt="Kitchen Essentials Store" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+            </div>
+            <div class="project-body">
+              <h3>Kitchen Essentials Store</h3>
+              <p>Quality kitchen utensils and home tools that make cooking and gathering easier.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">
+              <img src="pro4.png" alt="Vocational Skills Hub" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+            </div>
+            <div class="project-body">
+              <h3>Vocational Skills Hub</h3>
+              <p>Hands on vocational and business training that turns everyday skills into steady income.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PASSIONS
+       ======================================================== -->
+  <section class="section section--alt" id="passions">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">My Passions</span>
+        <h2>What keeps me going</h2>
+        <p class="lead">
+          Beyond the titles, these are the things I show up for every single day.
+        </p>
+      </div>
+
+      <div class="grid grid--small">
+        <div class="tile reveal">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4V4Z"/><path d="M20 4h-6a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h6V4Z"/></svg>
+          </span>
+          <span>Lifelong Learning</span>
+        </div>
+
+        <div class="tile reveal" data-delay="1">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M15 20a4 4 0 0 1 6 0"/></svg>
+          </span>
+          <span>Mentoring Children</span>
+        </div>
+
+        <div class="tile reveal" data-delay="2">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 3v6a4 4 0 0 0 8 0V3"/><path d="M8 13v3a5 5 0 0 0 10 0v-2"/><circle cx="18" cy="11" r="3"/></svg>
+          </span>
+          <span>Health Awareness</span>
+        </div>
+
+        <div class="tile reveal" data-delay="3">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a6 6 0 0 0-4 10.5c.8.8 1 2 1 3.5h6c0-1.5.2-2.7 1-3.5A6 6 0 0 0 12 2Z"/></svg>
+          </span>
+          <span>Leveraging Technology</span>
+        </div>
+
+        <div class="tile reveal">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 0 0 1.5-.1L17 16"/><path d="M2 12l4-4 4 4"/><path d="M22 12l-4-4-3 3"/><path d="M7 12l3 3a1 1 0 0 0 1.5-.1L14 12"/></svg>
+          </span>
+          <span>Supportive Spaces</span>
+        </div>
+
+        <div class="tile reveal" data-delay="1">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+          </span>
+          <span>Women Supporting Women</span>
+        </div>
+
+        <div class="tile reveal" data-delay="2">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          </span>
+          <span>Family and Strong Roots</span>
+        </div>
+
+        <div class="tile reveal" data-delay="3">
+          <span class="tile-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3c2 3 3 6 3 9v4l-3 2-3-2v-4c0-3 1-6 3-9Z"/><circle cx="12" cy="9" r="1.5"/><path d="M9 16c-1 2-1 4-1 5l4-1 4 1c0-1 0-3-1-5"/></svg>
+          </span>
+          <span>Building Potential</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MESSAGE
+       ======================================================== -->
+  <section class="section" id="message">
+    <div class="container">
+      <div class="quote-card reveal">
+        <span class="eyebrow eyebrow--light">A Message to Every Woman in Business</span>
+        <p>
+          To every woman juggling multiple roles, building an enterprise from scratch, or
+          wondering if her hard work is making a difference: <strong>keep going.</strong>
+          You do not have to fit into a single box. Whether you are teaching children during the
+          holidays, educating others on health, running a kitchen, selling products, managing a
+          digital brand, or learning a brand new skill, your capacity to create, nurture, provide
+          and grow is your superpower.
+        </p>
+        <p>
+          Financial independence and self reliance are not just about making a living. They are
+          about building a legacy, teaching those watching you that women are unstoppable, and
+          rewriting your own story on your own terms.
+        </p>
+        <div class="signature">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3c1.8 2.7 2.8 5.4 2.8 8 0 3.4-1.3 6.6-2.8 10-1.5-3.4-2.8-6.6-2.8-10 0-2.6 1-5.3 2.8-8Z"/>
+            <path d="M12 7v14"/>
+          </svg>
+          Bint
+        </div>
+        <span class="role">Women of Substance · Multi Passionate · Unstoppable</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       GOALS
+       ======================================================== -->
+  <section class="section section--alt" id="goals">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">My Aims and Goals</span>
+        <h2>Where I am headed next</h2>
+        <p class="lead">
+          My ultimate mission is to bridge the gap between traditional enterprise, youth education,
+          health advocacy and modern digital opportunities.
+        </p>
+      </div>
+
+      <div class="goals">
+        <article class="goal reveal">
+          <span class="goal-num" aria-hidden="true">01</span>
+          <div>
+            <h3>Bridge the gap</h3>
+            <p>
+              Connect traditional enterprise, youth education, health advocacy and digital
+              opportunity into one accessible, practical ecosystem.
+            </p>
+          </div>
+        </article>
+
+        <article class="goal reveal" data-delay="1">
+          <span class="goal-num" aria-hidden="true">02</span>
+          <div>
+            <h3>Scale the impact</h3>
+            <p>
+              Grow my educational programs so more individuals and young learners gain the
+              knowledge and skills they need to thrive.
+            </p>
+          </div>
+        </article>
+
+        <article class="goal reveal" data-delay="2">
+          <span class="goal-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Keep evolving</h3>
+            <p>
+              Continuously grow at the intersection of education, health, tech and business,
+              proving that with grit, faith and a supportive community, no goal is out of reach.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONTACT
+       ======================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Let's Connect</span>
+        <h2>Let's build, inspire and dream big</h2>
+        <p class="lead">
+          Thank you for walking this journey with me. Whether you need a tutor, a caterer, a
+          digital storyteller, quality kitchen utensils or a partner for a skills initiative, my
+          inbox is open.
+        </p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <h3>Send me a message</h3>
+        <p class="form-intro">
+          Fill this in and press send. Your email app will open with everything written out,
+          ready for you to review and send to me.
+        </p>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="cfName">Your name</label>
+            <input id="cfName" name="name" type="text" placeholder="Aunty Bintou" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="cfEmail">Your email</label>
+            <input id="cfEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="cfSubject">Subject</label>
+          <input id="cfSubject" name="subject" type="text" placeholder="Catering, tutoring, kitchen utensils or a partnership" />
+        </div>
+
+        <div class="field">
+          <label for="cfMessage">Your message</label>
+          <textarea id="cfMessage" name="message" placeholder="Tell me what you have in mind" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn--primary" type="submit">
+            Open in email
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-note">This opens your email app. Nothing is sent until you press send there.</p>
+        </div>
+      </form>
+
+      <div class="contact-grid">
+        <a class="contact-card reveal" href="mailto:khaleelbintu@gmail.com">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <span class="meta">
+            <strong>Email</strong>
+            <span>khaleelbintu@gmail.com</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="1"
+           href="https://wa.me/2349012930103" target="_blank" rel="noopener noreferrer">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+          </span>
+          <span class="meta">
+            <strong>WhatsApp</strong>
+            <span>+234 901 293 0103</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="2" href="tel:+2349012930103">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+          </span>
+          <span class="meta">
+            <strong>Call</strong>
+            <span>+234 901 293 0103</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="3"
+           href="https://www.instagram.com/khaleelbintu" target="_blank" rel="noopener noreferrer">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="meta">
+            <strong>Instagram</strong>
+            <span>@khaleelbintu</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal"
+           href="https://x.com/fatimabintkh" target="_blank" rel="noopener noreferrer">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>
+          </span>
+          <span class="meta">
+            <strong>X</strong>
+            <span>@fatimabintkh</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="1"
+           href="https://www.facebook.com/share/1C3eQHNTEr/" target="_blank" rel="noopener noreferrer">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5v4h3v7h4v-7h3l1-4h-4V7.5A.5.5 0 0 1 12.5 7H15V3Z"/></svg>
+          </span>
+          <span class="meta">
+            <strong>Facebook</strong>
+            <span>Fatima Ibrahim Bintou Khaleel</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="2"
+           href="https://www.linkedin.com/in/fatimah-ibrahim-5809a9326" target="_blank" rel="noopener noreferrer">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg>
+          </span>
+          <span class="meta">
+            <strong>LinkedIn</strong>
+            <span>Fatimah Ibrahim</span>
+          </span>
+        </a>
+
+        <a class="contact-card reveal" data-delay="3" href="bintou.pdf" target="_blank" rel="noopener">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/>
+              <path d="M14 3v5h5M9 13h6M9 17h4"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <strong>Curriculum Vitae</strong>
+            <span>View or download bintou.pdf</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="contact-note reveal">
+        <h3>What is one bold goal you are working toward right now?</h3>
+        <p>
+          Send it to me. I would genuinely love to hear it. Let's keep building, inspiring and
+          dreaming big together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================
+     FOOTER
+     ========================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-mark">
+            <span aria-hidden="true">BK</span>
+            <img src="profile.png" alt="" aria-hidden="true"
+                 loading="lazy" decoding="async" onerror="this.remove()" />
+          </span>
+          <span class="brand-text">
+            <strong>Bintou Khaleel</strong>
+            <em>Aunty Bintou</em>
+          </span>
+        </a>
+        <p>
+          Fatima Ibrahim, popularly known and addressed as Bintou Khaleel. Educator, health
+          advocate, caterer and builder of futures.
+        </p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/khaleelbintu" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://x.com/fatimabintkh" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1C3eQHNTEr/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5v4h3v7h4v-7h3l1-4h-4V7.5A.5.5 0 0 1 12.5 7H15V3Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/fatimah-ibrahim-5809a9326" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg>
+          </a>
+          <a href="https://wa.me/2349012930103" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-title">Get in Touch</p>
+        <ul class="footer-links">
+          <li><a href="mailto:khaleelbintu@gmail.com">khaleelbintu@gmail.com</a></li>
+          <li><a href="tel:+2349012930103">+234 901 293 0103</a></li>
+          <li><a href="https://wa.me/2349012930103" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          <li><a href="bintou.pdf" target="_blank" rel="noopener">View CV</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Fatima Ibrahim Bintou Khaleel. All rights reserved.</span>
+      <span>Built with purpose, health and heart.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================
+     BACK TO TOP
+     ========================================================== -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5M6 11l6-6 6 6"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ----------------------------------------------------------
+     Loader
+     ---------------------------------------------------------- */
+  var loader = document.getElementById('loader');
+
+  function hideLoader() {
+    if (!loader || loader.classList.contains('is-done')) return;
+    loader.classList.add('is-done');
+  }
+
+  window.addEventListener('load', function () {
+    setTimeout(hideLoader, 500);
+  });
+  setTimeout(hideLoader, 3500);
+
+  /* ----------------------------------------------------------
+     Theme toggle
+     ---------------------------------------------------------- */
+  var root = document.documentElement;
+  var themeToggle = document.getElementById('themeToggle');
+
+  function syncThemeButton() {
+    var isDark = root.getAttribute('data-theme') === 'dark';
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('bkTheme', theme); } catch (e) {}
+    syncThemeButton();
+  }
+
+  syncThemeButton();
+
+  themeToggle.addEventListener('click', function () {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ----------------------------------------------------------
+     Mobile navigation
+     ---------------------------------------------------------- */
+  var nav = document.getElementById('primaryNav');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = nav.querySelectorAll('a');
+
+  function closeNav() {
+    nav.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+  }
+
+  function toggleNav() {
+    var isOpen = nav.classList.toggle('is-open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  }
+
+  hamburger.addEventListener('click', toggleNav);
+
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      closeNav();
+      hamburger.focus();
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!nav.classList.contains('is-open')) return;
+    if (nav.contains(e.target) || hamburger.contains(e.target)) return;
+    closeNav();
+  });
+
+  var mqDesktop = window.matchMedia('(min-width: 900px)');
+  function handleBreakpoint(e) { if (e.matches) closeNav(); }
+  if (mqDesktop.addEventListener) {
+    mqDesktop.addEventListener('change', handleBreakpoint);
+  } else if (mqDesktop.addListener) {
+    mqDesktop.addListener(handleBreakpoint);
+  }
+
+  /* ----------------------------------------------------------
+     Scroll progress bar and back to top
+     ---------------------------------------------------------- */
+  var progressBar = document.getElementById('progressBar');
+  var toTop = document.getElementById('toTop');
+  var ticking = false;
+
+  function onScrollUpdate() {
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - doc.clientHeight;
+    var ratio = scrollable > 0 ? doc.scrollTop / scrollable : 0;
+
+    progressBar.style.transform = 'scaleX(' + Math.min(ratio, 1) + ')';
+
+    if (doc.scrollTop > 480) {
+      toTop.classList.add('is-visible');
+    } else {
+      toTop.classList.remove('is-visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(onScrollUpdate);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  onScrollUpdate();
+
+  toTop.addEventListener('click', function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  /* ----------------------------------------------------------
+     Scroll reveal
+     ---------------------------------------------------------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* ----------------------------------------------------------
+     Skill bar animation
+     ---------------------------------------------------------- */
+  var skillBars = document.querySelectorAll('.skill-bar');
+
+  if ('IntersectionObserver' in window && skillBars.length) {
+    var barObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var bar = entry.target;
+          bar.style.setProperty('--value', bar.getAttribute('data-value') + '%');
+          bar.classList.add('is-active');
+          barObserver.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    skillBars.forEach(function (bar) { barObserver.observe(bar); });
+  } else {
+    skillBars.forEach(function (bar) {
+      bar.style.setProperty('--value', bar.getAttribute('data-value') + '%');
+      bar.classList.add('is-active');
+    });
+  }
+
+  /* ----------------------------------------------------------
+     Scroll spy
+     ---------------------------------------------------------- */
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function (section) { spyObserver.observe(section); });
+  }
+
+  /* ----------------------------------------------------------
+     Contact form, opens the visitor's email app
+     ---------------------------------------------------------- */
+  var form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var name = (form.elements.name.value || '').trim();
+    var email = (form.elements.email.value || '').trim();
+    var subject = (form.elements.subject.value || '').trim();
+    var message = (form.elements.message.value || '').trim();
+
+    if (!name) {
+      form.elements.name.focus();
+      return;
+    }
+    if (!email || email.indexOf('@') === -1) {
+      form.elements.email.focus();
+      return;
+    }
+    if (!message) {
+      form.elements.message.focus();
+      return;
+    }
+
+    var finalSubject = subject || ('Portfolio message from ' + name);
+    var body =
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n\n' +
+      'Message:\n' + message + '\n\n' +
+      'Sent from the Bintou Khaleel portfolio.';
+
+    var mailto =
+      'mailto:khaleelbintu@gmail.com' +
+      '?subject=' + encodeURIComponent(finalSubject) +
+      '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+  });
+
+  /* ----------------------------------------------------------
+     Footer year
+     ---------------------------------------------------------- */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
